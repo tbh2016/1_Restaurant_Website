@@ -1,0 +1,9 @@
+header{font-size:3em; font-weight: bold; text-align:center; font-family:"Gloria Hallelujah",cursive;}
+footer{text-align:center;}
+
+a{text-decoration:underline;}
+a:link{color:blue;}
+a:visited{color:red;}
+a:hover{font-weight:bold;}
+a:active{color:purple; text-decoration:none;}
+

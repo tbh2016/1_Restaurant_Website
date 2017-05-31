@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<title>Goodman's Pizza Contact Page</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="RestaurantStyles_7.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+		
+		<style>	
+			body{background-color:#FFEBCD;}
+			table{font-size:1.5em;}
+			td{padding:3px;}
+			#right{text-align:right;}
+			#left{text-align:left;}
+			#length{width:250px;}
+			span{font-size:.7em;}
+			#right{font-weight:bold;}
+		</style>
+		
+		<script>
+		
+			function myFunction() {
+			
+				var x = document.forms["myForm"]["fname"].value;
+				if (x == "") {
+					alert("Name must be filled out");
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["email"].value;
+				var atpos = x.indexOf("@");
+				var dotpos = x.lastIndexOf(".");				
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+					alert("Not a valid e-mail address");
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["phone"].value;
+				if(isNaN(x)) {       
+					alert("Please input your number");      
+					return false;    
+				}
+				if (x.length<7) {
+					alert("enter 7 numbers");
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["reason"].value;
+				var y = document.forms["myForm"]["AddInfo"].value;
+				if (x == "Other" && y == "") {
+					alert("be sure to type something in the text area below");
+					return false;
+				}
+				
+				var DAYS = document.getElementsByName("day[]");
+				var dayCheck = false;
+				for (var i=0; i<DAYS.length; i++) {
+					if (DAYS[i].checked){
+					dayCheck = true;
+					}
+				}	
+				if (dayCheck == false)
+				{
+					alert("Please check at least one day");
+					return false;
+				}	
+			}
+			
+		</script>
+	</head>
+		
+	<body>											
+		<header>Goodman's Pizza</header> 
+		
+		<div class="container">
+			<ul class="nav nav-tabs nav-justified">
+				<li><a href="Home_V7.html" class="btn btn-info btn-lg"><span class="active glyphicon glyphicon-home"></span>Home</a></li>
+				<li><a href="Menu_V7.html" >Menu</a></li>
+				<li class="active"><a href="Contact_Us_V7.html" >Contact Us</a></li>
+			</ul>			
+		</div>
+		
+		<br>
+		
+		<div class="container">
+			<form name="myForm" action="goodmanspizza.com" onsubmit="return myFunction()" method="POST">
+				
+				<table>
+				
+					<tr>
+						<td id="right">Name:</td> 
+						<td id="left">
+							<input type="text" name="fname" id="length">
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="right">Email:</td> 
+						<td id="left">
+							<input type="text" name="email" id="length">
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="right">Phone:</td>
+						<td id="left">
+							<input type="text" name="phone" id="length">
+						</td>
+					</tr>
+									
+					<tr>
+						<td id="right">Reason for Inquiry:</td>
+						<td id="left">
+							<select name="reason" id="length">
+								<option value="Catering">Catering</option>
+								<option value="Private Party">Private Party</option>
+								<option value="Feedback">Feedback</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td  id="right" valign="top">Additional Information:</td>
+						<td id="left">     
+							<textarea name="AddInfo" rows="9" id="length"></textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="right">Have you been to the restaurant?</td>
+						<td id="left">
+							<span>
+								<input type="radio" name="answer" value="No" checked>No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+								<input type="radio" name="answer" value="Yes">Yes
+							</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="right">Best days to contact you:</td>
+						<td id="left">
+							<span>
+								<input type="checkbox" name="day[]" value="Monday">M&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="day[]" value="Tuesday">T&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="day[]" value="Wednesday">W&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="day[]" value="Thursday">Th&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="day[]" value="Friday">F
+							</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+						</td>
+						<td id="right">
+							<input type="submit" value="Send Request">
+						</td>
+					</tr>
+					
+				</table>		
+			</form>
+			
+			
+		</div>
+		<br>
+		<br>
+		<br>
+		
+		<hr>
+		
+		<footer>
+			<p> Address: 1212 Applepie Street, Springorange, Kentucky 10101 </p>
+			<p> Phone Number:(212)101-0101 </p>
+		</footer>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</body>
+	
+</html>
